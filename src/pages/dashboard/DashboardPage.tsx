@@ -7,9 +7,11 @@ import {
 } from "react-icons/io5";
 import { WhiteCard } from "../../components";
 import { useBearStore } from "../../store/bears/bears.store";
+import { usePersonStore } from "../../store/person/person.store";
 
 export const Dashboard = () => {
-  const totalBears = useBearStore((state) => state.computed.totalBears);
+  const totalBears = useBearStore((state) => state.totalBears);
+  const firstName = usePersonStore((state) => state.firstName);
 
   return (
     <>
@@ -21,13 +23,13 @@ export const Dashboard = () => {
         <WhiteCard centered>
           <IoPawOutline size={50} className="text-indigo-600" />
           <h2>Osos</h2>
-          <p>{totalBears}</p>
+          <p>{totalBears()}</p>
         </WhiteCard>
 
         <WhiteCard centered>
           <IoAccessibilityOutline size={50} className="text-indigo-600" />
           <h2>Persona</h2>
-          <p>Información</p>
+          <p>{firstName}</p>
         </WhiteCard>
 
         <WhiteCard centered>
