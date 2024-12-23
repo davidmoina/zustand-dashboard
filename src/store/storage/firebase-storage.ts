@@ -1,7 +1,6 @@
 import { createJSONStorage, StateStorage } from "zustand/middleware";
 
-const firebaseUrl =
-  "https://zustand-storage-89261-default-rtdb.europe-west1.firebasedatabase.app/zustand";
+const firebaseUrl = import.meta.env.VITE_FIREBASE_URL;
 
 // Cache para almacenar resultados
 const cache = new Map<string, { data: string; timestamp: number }>();
